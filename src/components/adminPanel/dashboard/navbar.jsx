@@ -42,6 +42,7 @@ export default function Navbar() {
         <List>
       {[
         { text: 'Dashboard', link: '/admin/dashboard' },
+        {text : 'Notification', link : '/admin/notification'},
         { text: 'Users', link: '/admin/users' },
         { text: 'Feedback', link: '/admin/feedback' },
         { text: 'Settings', link: '/admin/settings' },

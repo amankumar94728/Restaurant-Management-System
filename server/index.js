@@ -8,7 +8,7 @@ import testRoute from "./routes/testRoute.js"
 import siginRoute from "./routes/siginRoute.js"
 import Shop from "./routes/user_res_data.js";
 import Shops from "./mongoDb/Shop_reg_Schema.js"
-import  Transaction from  "./routes/shop_transection.js";
+import Transaction from  "./routes/shop_transection.js";
 import Feedback from "./routes/feedback_route.js";
 import Ingredient from "./routes/ingredient_shop.js";
 import MenuItem from "./routes/menu_item_routes.js";
@@ -16,6 +16,7 @@ import Order from "./routes/order_item_routes.js";
 import Table from "./routes/table_shop_routes.js";
 import Reservation from "./routes/reservation_routes.js";
 import tests from "./mongoDb/testSchema.js";
+import Notification from "./routes/notificationRoutes.js"
 dotenv.config();
 
 const app = express();
@@ -33,6 +34,8 @@ app.use('/api/v1/menuitems',MenuItem);
 app.use('/api/v1/orders',Order);
 app.use('/api/v1/tables',Table);
 app.use('/api/v1/reservations',Reservation);
+app.use('/api/v1/notification',Notification);
+
 
 
 

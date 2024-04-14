@@ -29,19 +29,21 @@ import Shop_owner_dashboard from "../src/components/shop_admin/dashboard/shop_ow
 import CustomerDetails from "../src/components/shop_admin/users/customer_det_sheet.js";
 import Customer from "../src/components/shop_admin/users/customerContent.js";
 import Menudisplay from "../src/components/shop_admin/menu/menu_item_admin.js";
-import User from "../src/components/Userpage/UserPage.js"
+import User from "../src/components/Userpage/UserPage.js";
+import Notification from "./components/notification/Notification.jsx";
 export default function App(){
   const value = Cookies.get("User-Details")
   console.log(value);
 return (
 <Routes>
   <Route path="/" element={<Search />} />
-   <Route path="/Sgn"  element={<Sgn />} /> 
+  <Route path="/Sgn"  element={<Sgn />} /> 
   <Route path="/Sigup"  element={<Sgup />} />
   {/* <Route path="/admin" element={<AdminApp />} /> */}
   {/* <Route path={`/${value}`} element={<Hello />} /> */}
   <Route path="/admin/navbar" element={<Navbar />} />
   <Route path={`/admin/dashboard`} element={<Content />} />
+  <Route path="/admin/notification" element={<Notification />} />
   <Route path="/admin/users" element={<Users />} />
   <Route path="/admin/feedback" element={<Feedback />} />
   <Route path="/admin/settings" element={<Setting />} />
