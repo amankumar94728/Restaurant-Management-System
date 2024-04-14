@@ -21,10 +21,7 @@ export default function Users() {
       axios.get('http://localhost:3001/api/v1/shops') // Replace '/api/users' with your actual backend API route
           .then(response => {
             //console.log('Data fetched successfully:', response.data);
-
-          
               setUserData(response.data);// Assuming your API returns an array of user data
-              
               console.log(userData);
               
           })
@@ -36,7 +33,7 @@ export default function Users() {
   useEffect(() => {
     // Log individual data items when userData changes
     userData.forEach(item => {
-      //console.log('Individual Data:', item);
+      console.log('Individual Data:', item);
     });
   }, [userData]);
     return (
