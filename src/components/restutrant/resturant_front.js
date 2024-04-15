@@ -73,11 +73,24 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function PrimarySearchAppBar() {
   const value = Cookies.get("User-Details");
+  const [cart, setCart] = React.useState([]);
+  const [isCartOpen, setIsCartOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const handleAddToCart = (item) => {
+    setCart([...cart, item]);
+  };
+
+  const handleViewCart = () => {
+    setIsCartOpen(true);
+  };
+
+  const handleCartClose = () => {
+    setIsCartOpen(false);
+  };
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -262,7 +275,22 @@ export default function PrimarySearchAppBar() {
       <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
 
       <h2><FoodBankTwoToneIcon></FoodBankTwoToneIcon>Our Delicious Menu</h2>
+      
       </div>
+      <Button variant="dark">Your Cart</Button>
+      {isCartOpen && (
+          <div>
+            <h2>Your Cart</h2>
+            <ul>
+              {cart.map((cartItem, index) => (
+                <li key={index}>
+                  {cartItem.name} - ${cartItem.price}
+                </li>
+              ))}
+            </ul>
+            <Button variant="dark" onClick={handleCartClose}>Close Cart</Button>
+          </div>
+        )}
   <Menuitems />
     </Box>
     </ThemeProvider>

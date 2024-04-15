@@ -65,6 +65,9 @@ export default function SignInSide() {
       if(formData){
       Cookies.set("User-Details",formData.name,{path:"/"});
       }
+      if(formData.role=="User"){
+        navigate(`/user`);
+      }
       
       if(formData.role=="Admin"){
         navigate('/Admin/dashboard');

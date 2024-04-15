@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import Button from '@mui/material/Button';
 import axios from 'axios';
 
 const MenuDisplay = () => {
@@ -65,6 +66,7 @@ const ActionAreaCard = ({ name, description, image ,price}) => {
           <Typography gutterBottom variant="h5" component="div">
             Rs. {price}.00
           </Typography>
+          <Button variant="contained">Add to Cart</Button>
         </CardContent>
       </CardActionArea>
     </Card>
