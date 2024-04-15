@@ -277,7 +277,7 @@ export default function PrimarySearchAppBar() {
       <h2><FoodBankTwoToneIcon></FoodBankTwoToneIcon>Our Delicious Menu</h2>
       
       </div>
-      <Button variant="dark">Your Cart</Button>
+      <Button variant="contained">Your Cart</Button>
       {isCartOpen && (
           <div>
             <h2>Your Cart</h2>
@@ -288,7 +288,7 @@ export default function PrimarySearchAppBar() {
                 </li>
               ))}
             </ul>
-            <Button variant="dark" onClick={handleCartClose}>Close Cart</Button>
+            <Button variant="contained" onClick={handleCartClose}>Close Cart</Button>
           </div>
         )}
   <Menuitems />

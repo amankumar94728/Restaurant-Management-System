@@ -10,7 +10,7 @@ const upload = multer({ storage });
 // Route to add a new menu item
 router.post('/menu-items', upload.single('image'), async (req, res) => {
     try {
-        const { name, description, price, category, availability } = req.body;
+        const { name, description, price, category, availability , quantity} = req.body;
 
         const newItem = new MenuItem({
             name,
@@ -18,6 +18,7 @@ router.post('/menu-items', upload.single('image'), async (req, res) => {
             price,
             category,
             availability, 
+            quantity,
             image: {
                 data: req.file.buffer,
                 contentType: req.file.mimetype
@@ -37,7 +38,7 @@ router.post('/menu-items', upload.single('image'), async (req, res) => {
 router.patch('/menu-items/:id', upload.single('image'), async (req, res) => {
     try {
         const menuItemId = req.params.id;
-        const { name, description, price, category, availability } = req.body;
+        const { name, description, price, category, availability, quantity } = req.body;
 
         const updatedItem = {
             name,
@@ -45,6 +46,7 @@ router.patch('/menu-items/:id', upload.single('image'), async (req, res) => {
             price,
             category,
             availability,
+            quantity,
         };
 
         const updatedMenuItem = await MenuItem.findByIdAndUpdate(

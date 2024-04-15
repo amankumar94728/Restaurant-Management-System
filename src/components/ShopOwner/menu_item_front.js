@@ -14,6 +14,7 @@ const MenuItemForm = () => {
         category: 'appetizer',
         availability: true,
         image: null,
+        quantity: '',
     });
 
     const handleChange = (event) => {
@@ -36,6 +37,7 @@ const MenuItemForm = () => {
             formDataToSend.append('category', formData.category);
             formDataToSend.append('availability', formData.availability);
             formDataToSend.append('image', formData.image);
+            formDataToSend.append('quantity', formData.quantity);
 
             await axios.post('http://localhost:3001/api/v1/menuitems/menu-items', formDataToSend, {
                 headers: {
@@ -125,6 +127,19 @@ const MenuItemForm = () => {
                         </FormControl>
                     </Grid>
                     <Grid item xs={12}>
+                        <TextField
+                            fullWidth
+                            required
+                            id="quantity"
+                            name="quantity"
+                            label="Quantity"
+                            type="number"
+                            value={formData.quantity}
+                            onChange={handleChange}
+                        />
+                    </Grid>
+                    
+                    <Grid item xs={12}>
                         <input
                             type="file"
                             accept="image/*"
@@ -138,9 +153,7 @@ const MenuItemForm = () => {
                     </Grid>
                 </Grid>
             </form>
-            <br />
-            <h3>Available Items :</h3>
-            <br />
+            
             <Menu />
         </Container>
     );
