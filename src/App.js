@@ -31,12 +31,13 @@ import Customer from "../src/components/shop_admin/users/customerContent.js";
 import Menudisplay from "../src/components/shop_admin/menu/menu_item_admin.js";
 import User from "../src/components/Userpage/UserPage.js";
 import Notification from "./components/notification/Notification.jsx";
+import HomePage from "./home.js";
 export default function App(){
   const value = Cookies.get("User-Details")
   console.log(value);
 return (
 <Routes>
-  <Route path="/" element={<Search />} />
+  <Route path="/" element={<HomePage />} />
   <Route path="/Sgn"  element={<Sgn />} /> 
   <Route path="/Sigup"  element={<Sgup />} />
   {/* <Route path="/admin" element={<AdminApp />} /> */}

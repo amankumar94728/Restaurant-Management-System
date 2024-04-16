@@ -13,8 +13,10 @@ import { Link } from 'react-router-dom';
 import ShopCards from '../ShopCards/ShopCards';
 import Image1 from '../../Static/Images/Shop_image.jpeg'
 import { Padding } from '@mui/icons-material';
-
+import Button from '@mui/material/Button';
 function Cards (shopData){
+  const value = Cookies.get("User-Details")
+  // console.log(value);
   console.log('shop Name : ',shopData.shopName);
   const name = shopData.shopName;
   return (
@@ -91,9 +93,12 @@ return(
     photo={Image1}
     author={shop.ownerName}
     rating={3} // or any other rating value
+    
   />
+  
 ))}
   {/* <Cards style={{ flex: '0 0 calc(33.333%  )' }} />  */}
+  <Button type="contained"  component={Link} to={`/${value}`}>Visit the Shop</Button>
 </div>
 
    
