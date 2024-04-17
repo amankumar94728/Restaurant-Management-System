@@ -32,6 +32,7 @@ import Menudisplay from "../src/components/shop_admin/menu/menu_item_admin.js";
 import User from "../src/components/Userpage/UserPage.js";
 import Notification from "./components/notification/Notification.jsx";
 import HomePage from "./home.js";
+import AddToCart from "./components/addtocart/AddToCart.jsx";
 export default function App(){
   const value = Cookies.get("User-Details")
   console.log(value);
@@ -63,7 +64,6 @@ return (
    <Route path={`/${value}/book-table`} element={<Book_Table />} />
    <Route path={`/${value}/admin/dashboard`} element={<Shop_owner_dashboard />} />
    <Route path={`/${value}/admin/users`} element={<Customer />} />
-  
    <Route path={`/${value}/menu-display`} element={<Menudisplay />} />
    <Route path={`/user`} element={<User />} />
 </Routes>

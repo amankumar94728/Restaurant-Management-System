@@ -17,6 +17,7 @@ import Table from "./routes/table_shop_routes.js";
 import Reservation from "./routes/reservation_routes.js";
 import tests from "./mongoDb/testSchema.js";
 import Notification from "./routes/notificationRoutes.js"
+import cartRoutes from "./routes/cartRoutes.js";
 dotenv.config();
 
 const app = express();
@@ -35,6 +36,8 @@ app.use('/api/v1/orders',Order);
 app.use('/api/v1/tables',Table);
 app.use('/api/v1/reservations',Reservation);
 app.use('/api/v1/notification',Notification);
+app.use('/api/v1/cart',cartRoutes);
+
 
 
 
@@ -55,7 +58,7 @@ app.get('/api/v1/shops', async (req, res) => {
 app.get('/api/v1/customer', async (req, res) => {
     try {
         // Fetch data from MongoDB (example using Mongoose)
-        const customer = await tests.find(); 
+        const customer = await tests.find({role:{$ne:'Admin'}}); 
 
         // Send the fetched data as a response
         res.json(customer);
